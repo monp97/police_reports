@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/linearLayout1"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        tools:ignore="MissingConstraints" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+           <ImageView
+               android:id="@+id/prev"
+               android:onClick="changePrev"
+               android:layout_width="25dp"
+               android:layout_height="25dp"
+               android:gravity="center_vertical"
+               android:src="@drawable/baseline_navigate_before_white_48dp"
+               />
+
+            <TextView
+                android:id="@+id/month_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/prev"
+                android:textSize="15dp"
+                android:gravity="center_vertical"
+                android:padding="3dp"
+                android:textColor="@color/white"
+                android:text="SEP,2022"
+                />
+
+
+            <ImageView
+                android:id="@+id/next"
+                android:onClick="changeNext"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:gravity="center_vertical"
+                android:src="@drawable/baseline_navigate_next_white_48dp"
+                android:layout_toRightOf="@+id/month_picker"
+                />
+
+
+
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv"
+        >
+    </android.support.v7.widget.RecyclerView>
+
+    <ImageView
+        android:id="@+id/pop_up_button"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:padding="5dp"
+        android:onClick="clicked"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/add_circle"
+        />
+
+
+</RelativeLayout>

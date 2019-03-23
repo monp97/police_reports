@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent">
+
+
+<RelativeLayout android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        tools:ignore="MissingConstraints" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/prev"
+                android:onClick="changePrev"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:gravity="center_vertical"
+                android:src="@drawable/baseline_navigate_before_white_48dp"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/date_block"
+        android:gravity="center"
+        android:layout_below="@id/my_toolbar"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/date_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:inputType="text" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <ImageView
+            android:id="@+id/date"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:onClick="pickDate"
+            android:src="@drawable/date" />
+
+
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_below="@id/date_block"
+        android:background="#f1f0ee"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        app:cardBackgroundColor="#f1f0ee"
+        android:layout_width="match_parent"
+        android:elevation="5dp"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="4dp">
+
+
+        <LinearLayout
+            android:id="@+id/ccd_block"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="30dp"
+            android:layout_below="@+id/date_block"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/ccd"
+                android:layout_gravity="left"
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:text="@string/ccd">
+
+            </TextView>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_pending_ccd"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/pending_ccd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:inputType="number"
+                    android:hint="CCDs pending at beginning" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_ccds_updated"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/input_ccds_updated"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="CCDs to be updated" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_ccds_updated_done"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/input_ccds_updated_done"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="CCDs updated" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_ccds_updated_undone"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/input_ccds_updated_undone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="CCDs yet to be updated" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_ccds_pending"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/input_ccds_pending"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="CCDs pending" />
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/ccd_block"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--android:padding="30dp"-->
+        <!--android:layout_below="@+id/date_block"-->
+        <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/ccd"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:padding="5dp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textColor="#000"-->
+                    <!--android:textSize="30dp"-->
+                    <!--android:text="@string/ccd">-->
+
+                <!--</TextView>-->
+
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:id="@+id/input_layout_pending_ccd"-->
+                    <!--android:padding="5dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/pending_ccd"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:singleLine="true"-->
+                        <!--android:inputType="number"-->
+                        <!--android:hint="CCDs pending at beginning" />-->
+
+                <!--</android.support.design.widget.TextInputLayout>-->
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:id="@+id/input_layout_ccds_updated"-->
+                    <!--android:padding="5dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/input_ccds_updated"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:inputType="number"-->
+                        <!--android:hint="CCDs to be updated" />-->
+                <!--</android.support.design.widget.TextInputLayout>-->
+
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:id="@+id/input_layout_ccds_updated_done"-->
+                    <!--android:padding="5dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/input_ccds_updated_done"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:inputType="number"-->
+                        <!--android:hint="CCDs updated" />-->
+
+                <!--</android.support.design.widget.TextInputLayout>-->
+
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:id="@+id/input_layout_ccds_updated_undone"-->
+                    <!--android:padding="5dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/input_ccds_updated_undone"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:inputType="number"-->
+                        <!--android:hint="CCDs yet to be updated" />-->
+                <!--</android.support.design.widget.TextInputLayout>-->
+
+
+                <!--<android.support.design.widget.TextInputLayout-->
+                    <!--android:id="@+id/input_layout_ccds_pending"-->
+                    <!--android:padding="5dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/input_ccds_pending"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:inputType="number"-->
+                        <!--android:hint="CCDs pending" />-->
+                <!--</android.support.design.widget.TextInputLayout>-->
+
+    <!--</LinearLayout>-->
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view2"
+        android:layout_gravity="center"
+        android:layout_below="@id/card_view"
+        android:background="#f1f0ee"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        app:cardBackgroundColor="#f1f0ee"
+        android:layout_width="match_parent"
+        android:elevation="5dp"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:id="@+id/summon_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp"
+        android:layout_below="@+id/card_view">
+
+        <TextView
+            android:id="@+id/Summon"
+            android:layout_gravity="left"
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:text="@string/summon">
+
+        </TextView>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_pending_summon"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/pending_summon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:inputType="number"
+                android:hint="summons pending at beginning" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_summon_updated"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/input_summon_updated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="summon to be updated" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_summon_updated_done"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/input_summon_updated_done"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="summons updated" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_summon_updated_undone"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/input_ccds_summon_undone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="summons yet to be updated" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_summon_pending"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/input_summon_pending"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="summons pending" />
+        </android.support.design.widget.TextInputLayout>
+
+
+
+    </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_below="@id/card_view2"
+        android:layout_height="wrap_content"
+        android:text="SUBMIT"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:onClick="DisplayInMain"
+        android:background="@color/colorPrimary"/>
+
+</RelativeLayout>
+</ScrollView>
